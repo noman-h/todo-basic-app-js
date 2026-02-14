@@ -2,14 +2,12 @@ let inp=document.querySelector(".inp input");
 let add=document.querySelector(".add")
 let inn=document.querySelector(".inner");
 
-
-
   
-let i=1;
+
     document.addEventListener("click", (n)=>{
         if(n.target.classList.contains("del")){
             n.target.closest(".todo").remove();
-            i--;
+            num();
         }
     })
 add.addEventListener("click",()=>{
@@ -24,10 +22,9 @@ add.addEventListener("click",()=>{
     d.appendChild(d2);
 
     let co=document.createElement("h3");
-    co.textContent=`${i} .`;
-    i++;
     co.classList.add("cou");
     d2.appendChild(co);
+    num();
 
     let check=document.createElement("input");
     check.setAttribute("type","checkbox");
@@ -46,11 +43,17 @@ add.addEventListener("click",()=>{
         p.classList.toggle("pr")
      })
      inp.value="";
-    }
-    else {
-    alert("enter task");
-}  
+    
+}
     });
+    
+    function num(){
+        let n=document.querySelectorAll(".cou");
+       
+        n.forEach((e,i)=> {
+            e.textContent=`${i+1} .`;
+        });
+    }
 
 
  
